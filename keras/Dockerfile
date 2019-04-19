@@ -1,19 +1,10 @@
-FROM jupyter/tensorflow-notebook:latest
+FROM jupyter/tensorflow-notebook:7d427e7a4dde
 MAINTAINER Andrew Collier <andrew@exegetic.biz>
 
-USER root
-# WORKDIR /
+ENV OPENCV_VERSION 4.1.0.25
 
-RUN apt-get update && \
-    apt-get install -y \
-        build-essential \
-        pkg-config \
-        git \
-        wget \
-        unzip && \
-    apt-get clean -y
+RUN pip install opencv-python==$OPENCV_VERSION opencv-contrib-python==$OPENCV_VERSION
 
 RUN mkdir .keras
 COPY keras.json .keras
 
-# RUN pip install keras

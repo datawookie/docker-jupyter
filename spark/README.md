@@ -39,11 +39,11 @@ The Spark distribution is under `/usr/local/`.
 On AWS:
 
 ```
-docker run -d --rm --name pyspark --net=host --user 500 -v $PWD:/home/jovyan/ datawookie/pyspark-notebook
+docker run -d --rm --name pyspark --net=host --user 500 -v $PWD:/home/jovyan/work/ datawookie/pyspark-notebook
 ```
 
 Local:
 
 ```
-docker run -d --rm --name pyspark -p 8888:8888 -v $PWD:/home/jovyan/ datawookie/pyspark-notebook
+docker run -d --rm --name pyspark -p 8888:8888 -v $PWD:/home/jovyan/work/ datawookie/pyspark-notebook
 ```

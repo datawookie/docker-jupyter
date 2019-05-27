@@ -3,7 +3,7 @@
 ## Build Image
 
 ```
-docker build -t pyspark-notebook .
+docker build -t jupyter-keras .
 ```
 
 ## Running

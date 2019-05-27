@@ -27,3 +27,6 @@ ENV PYSPARK_PYTHON /usr/bin/python3
 RUN ln -s /opt/conda/bin/python3 /usr/bin/python3
 
 USER $NB_UID
+
+RUN mkdir /home/$NB_USER/.jupyter/custom
+COPY custom.js /home/$NB_USER/.jupyter/custom

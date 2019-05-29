@@ -12,7 +12,8 @@ RUN pip install --no-cache-dir \
     kafka \
     findspark \
     graphviz \
-    pydot
+    pydot \
+    jupyter_contrib_nbextensions
 
 RUN apt-get update && \
     apt-get install -y -qq \
@@ -27,6 +28,13 @@ ENV PYSPARK_PYTHON /usr/bin/python3
 RUN ln -s /opt/conda/bin/python3 /usr/bin/python3
 
 USER $NB_UID
+
+# Configure Unofficial Jupyter Notebook Extensions (installed above).
+#
+# https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/index.html
+#
+RUN jupyter contrib nbextension install --user && \
+    jupyter nbextension enable export_embedded/main
 
 RUN mkdir /home/$NB_USER/.jupyter/custom
 COPY custom.js /home/$NB_USER/.jupyter/custom

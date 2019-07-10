@@ -31,7 +31,7 @@ RUN ln -s /opt/conda/bin/python3 /usr/bin/python3
 # Add some sample data.
 #
 RUN mkdir /data && cd /data && \
-    wget https://github.com/databricks/Spark-The-Definitive-Guide/raw/master/data/flight-data/jdbc/my-sqlite.db && \
+    wget -O flights-sqlite.db https://github.com/databricks/Spark-The-Definitive-Guide/raw/master/data/flight-data/jdbc/my-sqlite.db && \
     wget -O developers.csv https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/people.csv && \
     wget https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/employees.json && \
     wget https://github.com/apache/spark/raw/master/examples/src/main/resources/users.parquet

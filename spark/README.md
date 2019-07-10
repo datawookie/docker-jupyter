@@ -27,7 +27,7 @@ But that's a bit of a kludge. It's set in the image instead.
 ## Build Image
 
 ```
-docker build -t pyspark-notebook .
+docker build -t jupyter-spark .
 ```
 
 ## Image Layout

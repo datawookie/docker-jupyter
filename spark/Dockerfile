@@ -34,7 +34,8 @@ RUN mkdir /data && cd /data && \
     wget -O flights-sqlite.db https://github.com/databricks/Spark-The-Definitive-Guide/raw/master/data/flight-data/jdbc/my-sqlite.db && \
     wget -O developers.csv https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/people.csv && \
     wget https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/employees.json && \
-    wget https://github.com/apache/spark/raw/master/examples/src/main/resources/users.parquet
+    wget https://github.com/apache/spark/raw/master/examples/src/main/resources/users.parquet && \
+    wget https://raw.githubusercontent.com/datawookie/data-diaspora/master/olympic-games/olympic-athlete-events.csv
 
 USER $NB_UID
 

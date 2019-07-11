@@ -31,11 +31,27 @@ RUN ln -s /opt/conda/bin/python3 /usr/bin/python3
 # Add some sample data.
 #
 RUN mkdir /data && cd /data && \
-    wget -O flights-sqlite.db https://github.com/databricks/Spark-The-Definitive-Guide/raw/master/data/flight-data/jdbc/my-sqlite.db && \
     wget -O developers.csv https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/people.csv && \
     wget https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/employees.json && \
     wget https://github.com/apache/spark/raw/master/examples/src/main/resources/users.parquet && \
-    wget https://raw.githubusercontent.com/datawookie/data-diaspora/master/olympic-games/olympic-athlete-events.csv
+    wget https://raw.githubusercontent.com/datawookie/data-diaspora/master/olympic-games/olympic-athlete-events.csv && \
+    wget http://stat-computing.org/dataexpo/2009/airports.csv && \
+    wget http://stat-computing.org/dataexpo/2009/carriers.csv && \
+    wget -qO - http://stat-computing.org/dataexpo/2009/2008.csv.bz2 | bzip2 -dc | awk -F, 'BEGIN {OFS=","} {if ($2==2) print $2, $3, $4, $9, $10, $17, $18, $19, $6, $13, $15}' >flights.csv && \
+    echo 'create table flights (\n\
+      mon int,\n\
+      dom int,\n\
+      dow int,\n\ 
+      carrier varchar(5),\n\
+      flight int,\n\
+      orig varchar(3),\n\
+      dest varchar(3),\n\
+      mile int,\n\
+      depart int,\n\
+      duration int,\n\
+      delay int\n\
+    );\n.separator ,\n.import flights.csv flights' | sqlite3 flights.db && \
+    rm flights.csv
 
 USER $NB_UID
 
@@ -48,3 +64,4 @@ RUN jupyter contrib nbextension install --user && \
 
 RUN mkdir /home/$NB_USER/.jupyter/custom
 COPY custom.js /home/$NB_USER/.jupyter/custom
+

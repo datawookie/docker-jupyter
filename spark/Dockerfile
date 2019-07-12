@@ -35,6 +35,8 @@ RUN mkdir /data && cd /data && \
     wget https://raw.githubusercontent.com/apache/spark/master/examples/src/main/resources/employees.json && \
     wget https://github.com/apache/spark/raw/master/examples/src/main/resources/users.parquet && \
     wget https://raw.githubusercontent.com/datawookie/data-diaspora/master/olympic-games/olympic-athlete-events.csv && \
+    wget https://raw.githubusercontent.com/datawookie/data-diaspora/master/cars.csv && \
+    wget https://raw.githubusercontent.com/datawookie/data-diaspora/master/sms-spam.csv && \
     wget http://stat-computing.org/dataexpo/2009/airports.csv && \
     wget http://stat-computing.org/dataexpo/2009/carriers.csv && \
     wget -qO - http://stat-computing.org/dataexpo/2009/2008.csv.bz2 | bzip2 -dc | awk -F, 'BEGIN {OFS=","} {if ($2==2) print $2, $3, $4, $9, $10, $17, $18, $19, $6, $13, $15}' >flights.csv && \

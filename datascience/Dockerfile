@@ -6,6 +6,7 @@ MAINTAINER Andrew Collier <andrew@exegetic.biz>
 RUN pip install RISE && \
     jupyter-nbextension install rise --py --sys-prefix && \
     pip install \
+      backoff \
       selenium \
       psycopg2-binary
 

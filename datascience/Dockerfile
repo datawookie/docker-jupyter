@@ -7,6 +7,8 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y -qq \
+        libleptonica-dev \
+        libtesseract-dev \
         imagemagick \
         tesseract-ocr
 
@@ -23,4 +25,5 @@ RUN pip install RISE && \
       imutils \
       pillow \
       pytesseract
+      # tesserocr
 

@@ -7,6 +7,7 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y -qq \
+        imagemagick \
         tesseract-ocr
 
 USER $NB_UID

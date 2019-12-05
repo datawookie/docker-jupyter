@@ -24,6 +24,8 @@ RUN pip install RISE && \
       opencv-contrib-python \
       imutils \
       pillow \
-      pytesseract
+      pytesseract \
+      python3_anticaptcha twocaptchaapi \
+      wget
       # tesserocr
 

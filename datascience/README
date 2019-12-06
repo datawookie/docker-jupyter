@@ -6,10 +6,6 @@ docker build -t jupyter-datascience .
 
 docker run -d --rm --name jupyter -p 8888:8888 -v $PWD:/home/jovyan/work/ jupyter-datascience
 
-To run the Jupyter Labs interface use:
-
-docker run -d --rm --name jupyter -p 8888:8888 -v $PWD:/home/jovyan/work/ jupyter-datascience  start.sh jupyter lab
-
 ## Notes
 
 To turn a notebook into a slideshow:

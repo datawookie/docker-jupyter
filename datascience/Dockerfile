@@ -29,3 +29,6 @@ RUN pip install RISE && \
       wget
       # tesserocr
 
+# Launch with Jupyter Labs.
+#
+CMD ["start.sh", "jupyter", "lab"]

@@ -9,6 +9,7 @@ RUN apt-get update && \
     apt-get install -y -qq \
         libleptonica-dev \
         libtesseract-dev \
+	libpq-dev \
         imagemagick \
         tesseract-ocr
 

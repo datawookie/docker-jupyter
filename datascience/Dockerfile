@@ -18,6 +18,7 @@ USER $NB_UID
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt && \
+    rm -f requirements.txt && \
     jupyter-nbextension install rise --py --sys-prefix
 
 # Launch with Jupyter Labs.

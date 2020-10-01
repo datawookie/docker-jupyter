@@ -15,21 +15,11 @@ RUN apt-get update && \
 
 USER $NB_UID
 
-RUN pip install RISE && \
-    jupyter-nbextension install rise --py --sys-prefix && \
-    pip install \
-      backoff \
-      selenium \
-      psycopg2-binary \
-      opencv-python \
-      opencv-contrib-python \
-      imutils \
-      pillow \
-      pytesseract \
-      python3_anticaptcha twocaptchaapi \
-      wget
-      # tesserocr
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt && \
+    jupyter-nbextension install rise --py --sys-prefix
 
 # Launch with Jupyter Labs.
 #
-CMD ["start.sh", "jupyter", "lab"]
+# CMD ["start.sh", "jupyter", "lab"]

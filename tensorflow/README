@@ -1,0 +1,7 @@
+## Build
+
+docker build -t tensorflow .
+
+## Run
+
+docker run -p 8888:8888 tensorflow

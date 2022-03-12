@@ -11,7 +11,8 @@ RUN apt-get update && \
         libtesseract-dev \
 	libpq-dev \
         imagemagick \
-        tesseract-ocr
+        tesseract-ocr \
+        graphviz
 
 USER $NB_UID
 
